@@ -18,6 +18,7 @@ class ComposerStaticInitfb20203da337b9e31340f89c2a27389e
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\jui\\' => 8,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -28,6 +29,15 @@ class ComposerStaticInitfb20203da337b9e31340f89c2a27389e
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'k' => 
+        array (
+            'kartik\\datetime\\' => 16,
+            'kartik\\base\\' => 12,
+        ),
+        'd' => 
+        array (
+            'dosamigos\\tinymce\\' => 18,
         ),
         'c' => 
         array (
@@ -79,6 +89,10 @@ class ComposerStaticInitfb20203da337b9e31340f89c2a27389e
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
         ),
+        'yii\\jui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui',
+        ),
         'yii\\gii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-gii',
@@ -108,6 +122,18 @@ class ComposerStaticInitfb20203da337b9e31340f89c2a27389e
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'kartik\\datetime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-datetimepicker',
+        ),
+        'kartik\\base\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
+        ),
+        'dosamigos\\tinymce\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-tinymce-widget/src',
         ),
         'cebe\\markdown\\' => 
         array (

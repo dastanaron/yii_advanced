@@ -118,3 +118,16 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.page-info {
+    margin-top: 45px;
+}
+
+.author-page {
+    color: #cecece;
+    font-style: italic;
+    font-size: 0.9em;
+}
+.date-create-page {
+    color: #286090;
+    font-size: 0.8em;
+}

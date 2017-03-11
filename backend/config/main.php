@@ -42,6 +42,14 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                //'user/<action:category/|order>'=>'page/<action>',
+                //'page/<category:[\w_-]+>/<id:[\d]+>'=>'page/show',
+                //'page/<showpage:[\w_\/-]+>'=>'page/showpage',
+                //'page'=>'page/index',
+                /*'user/view/<id:[\d]+>' =>'user/view',
+                'user/update/<id:[\d]+>' =>'user/update',
+                'user/delete/<id:[\d]+>' =>'user/delete',*/
+                
             ],
         ],
         
