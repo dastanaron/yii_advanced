@@ -1,4 +1,11 @@
 RewriteEngine On 
+
+
+RewriteRule ^frontend/web/uploads_thumbs/(.*)$ http://site.com/uploads_thumbs/$1 [R=301,L]
+RewriteRule ^frontend/web/uploads/(.*)$ http://site.com/uploads/$1 [R=301,L]
+RewriteRule ^uploads/(.*)$ http://site.com/uploads/$1 [R=301,L]
+
+
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteRule ^(.*)$ /index.php/$1 [L]

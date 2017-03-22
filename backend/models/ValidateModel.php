@@ -31,7 +31,7 @@ class ValidateModel {
     
     public static function IsTimestamp($value) {
         
-        if (preg_match('#(\d){10,}#', $value)) {
+        if (preg_match('#\d+#U', $value)) {
             return true;
         }
         else {
@@ -41,3 +41,4 @@ class ValidateModel {
     }
     
 }
+
