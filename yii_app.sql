@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.5.49, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: yii_app
 -- ------------------------------------------------------
--- Server version	5.5.46-0+deb8u1
+-- Server version	5.5.49-0+deb8u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -44,7 +44,7 @@ CREATE TABLE `content` (
 
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
-INSERT INTO `content` VALUES (1,'test','test keyword','test desscription',NULL,'Большой большой тестовый текст','Заголовок',1,'test/',1489222000,1489222246),(2,'Песня в траве сидел кузнечик',NULL,NULL,NULL,'В траве сидел кузнечик,\r\nВ траве сидел кузнечик,\r\nСовсем как огуречик,\r\nЗелененький он был.\r\n\r\nПредставьте себе, \r\nПредставьте себе,\r\nСовсем как огуречик.\r\nПредставьте себе, \r\nПредставьте себе,\r\nЗелененький он был.\r\n\r\nОн ел одну лишь травку,\r\nОн ел одну лишь травку,\r\nНе трогал и козявку\r\nИ с мухами дружил.\r\n\r\nПредставьте себе, \r\nПредставьте себе,\r\nНе трогал и козявку,\r\nПредставьте себе, \r\nПредставьте себе,\r\nИ с мухами дружил.\r\n\r\nНо вот пришла лягушка,\r\nНо вот пришла лягушка -\r\nПрожорливое брюшко -\r\nИ съела кузнеца.\r\n\r\nПредставьте себе, \r\nПредставьте себе,\r\nПрожорливое брюшко.\r\nПредставьте себе, \r\nПредставьте себе,\r\nИ съела кузнеца.\r\n\r\nНе думал, не гадал он,\r\nНе думал, не гадал он,\r\nНикак не ожидал он\r\nТакого вот конца.\r\n\r\nПредставьте себе, \r\nПредставьте себе,\r\nНикак не ожидал он,\r\nПредставьте себе, \r\nПредставьте себе,\r\nТакого вот конца.','Песня в траве сидел кузнечик',2,'kuznechik/',0,0);
+INSERT INTO `content` VALUES (1,'test','test keyword','test desscription',NULL,'<p>Большой большой тестовый текст</p>','Заголовок',1,'test/',1488325849,1490093709),(2,'Песня в траве сидел кузнечик','','',NULL,'<p>В траве сидел кузнечик,</p>\r\n<p>В траве сидел кузнечик,</p>\r\n<p>Совсем как огуречик,</p>\r\n<p>Зелененький он был.</p>\r\n<p>Представьте себе, Представьте себе, Совсем как огуречик. Представьте себе, Представьте себе, Зелененький он был. Он ел одну лишь травку, Он ел одну лишь травку, Не трогал и козявку И с мухами дружил. Представьте себе, Представьте себе, Не трогал и козявку, Представьте себе, Представьте себе, И с мухами дружил. Но вот пришла лягушка, Но вот пришла лягушка - Прожорливое брюшко - И съела кузнеца. Представьте себе, Представьте себе, Прожорливое брюшко. Представьте себе, Представьте себе, И съела кузнеца. Не думал, не гадал он, Не думал, не гадал он, Никак не ожидал он Такого вот конца. Представьте себе, Представьте себе, Никак не ожидал он, Представьте себе, Представьте себе, Такого вот конца.</p>','Песня в траве сидел кузнечик',0,'kuznechik/',1490050529,1490173878);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,6 +70,38 @@ LOCK TABLES `migration` WRITE;
 /*!40000 ALTER TABLE `migration` DISABLE KEYS */;
 INSERT INTO `migration` VALUES ('m000000_000000_base',1489173147),('m130524_201442_init',1489173149);
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `slids`
+--
+
+DROP TABLE IF EXISTS `slids`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `slids` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `img_src` varchar(200) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `link` varchar(200) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `valute` varchar(10) DEFAULT NULL,
+  `text_on_button` varchar(15) DEFAULT NULL,
+  `img_left` varchar(10) DEFAULT NULL,
+  `img_top` varchar(10) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `slids`
+--
+
+LOCK TABLES `slids` WRITE;
+/*!40000 ALTER TABLE `slids` DISABLE KEYS */;
+INSERT INTO `slids` VALUES (1,'http://gabetti.pro/upload/iblock/fd9/fd9480eebea65764c0888a9291b6060b.jpg','Квартиры и комнаты в Крыму','http://gabetti.pro/flats/',3000000,'руб.','Подобрать','0','-180px','2017-03-24 13:45:05'),(2,'http://gabetti.pro/upload/iblock/2eb/2ebfe10b559c935d7e0e65f0a88ea7e6.jpg','Новостройки в Крыму','http://gabetti.pro/flats/',NULL,'','Подобрать','','-180px','2017-03-24 13:47:14'),(3,'http://gabetti.pro/upload/iblock/d46/d4636f73e20d8de8e7bd9357f3deb1c2.jpg','Загородная недвижимость в Крыму','http://gabetti.pro/flats/',NULL,'','Подобрать','0','-180px','2017-03-24 13:48:14');
+/*!40000 ALTER TABLE `slids` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -117,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-11 15:58:27
+-- Dump completed on 2017-03-27  9:42:24
