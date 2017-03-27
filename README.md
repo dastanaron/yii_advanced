@@ -24,7 +24,7 @@ V 1.0
 7. Добавлены возможности управления пользователями, при этом не нарушая их работу
 Возможность смены пароля, просмотра хэша и убрано многое другое лишнее.
 
-V 1.1
+V Gabetti
 ========================================================
 
 Добавлены:
@@ -76,6 +76,15 @@ Slider::AutodetectSlider([
 шаблон слайдера в компоненте. Потому как этот сделан для конкретного сайта, а 
 времени превратить его в универсальный просто нет.
 
+Можно вместо массива вызвать метод **buildParams()**, и он сам соберет массив,
+на основе данных в БД.
+
+```php
+$Asset = Slider::RegisterFiles($Asset); //Регистрация скриптов и css
+Slider::buildParams(); //Сбор параметров
+Slider::AutodetectSlider(); //Запуск слайдера
+```
+
 ##### Другие функции компонента Slider:
 
 RegisterFiles($asset, $page = '') - регистрирует файлы скриптов и стилей.
@@ -95,8 +104,6 @@ getSlider($params = array()) - тоже самое что и атодетект,
 \frontend\web\js\swiper\js\clientSwiper.js
 ```
 
-#### Файловый менеджер
-
 Файловый менедежер для TinyMCE сделан по примеру статьи
 <https://xn--d1acnqm.xn--j1amh/%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8/yii2-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-tinymce-%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D1%8F-%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80%D0%B0-responsive-filemanager-%D0%B2-tinymce#>
 
@@ -110,6 +117,46 @@ admin.site.com - аддминка этого сайта.
 Таким образом у меня виртуалхост подключается напрямую в папку backend/web/ или
 frontend/web/, для разных доменов, что делает систему более безопасной.
 
+V gabetti_2
+======================================================
+
+Добавлены:
+
+1. Компонент common\components\MultiSite
+2. Этот же компонент добавлен в конфиг common/config/main.php и переданы свойства
+3. Добавлена возможность редактирования слайдов с админки. 
+4. Добавлены настройки и функции слайдера.
+5. Улучшен файловый менеджер, русифицирован.
+
+common\components\MultiSite
+----------------------------------------------------
+
+Чтобы пользоваться компонентом, необходимо сделать примерно такой конфиг:
+
+```php
+return [
+    'timeZone' => 'Europe/Moscow',
+    'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'components' => [
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],
+        'MultiSite' => [
+            'class' => 'common\components\MultiSite',
+            'frontend' => 'http://site.com',
+            'backend' => 'http://admin.site.com',
+        ],
+    ],
+    'language' => 'ru-RU',
+];
+```
+
+Потом его можно использовать так:
+
+```php
+echo Yii::$app->MultiSite->getFrontend(); //Покажет адрес frontend
+echo Yii::$app->MultiSite->getBackend(); //Покажет адрес backend
+```
 
 
 

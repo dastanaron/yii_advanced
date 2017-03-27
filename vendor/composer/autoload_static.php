@@ -15,6 +15,10 @@ class ComposerStaticInitfb20203da337b9e31340f89c2a27389e
     );
 
     public static $prefixLengthsPsr4 = array (
+        'z' => 
+        array (
+            'zxbodya\\yii2\\elfinder\\' => 22,
+        ),
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
@@ -85,6 +89,10 @@ class ComposerStaticInitfb20203da337b9e31340f89c2a27389e
     );
 
     public static $prefixDirsPsr4 = array (
+        'zxbodya\\yii2\\elfinder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zxbodya/yii2-elfinder',
+        ),
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',

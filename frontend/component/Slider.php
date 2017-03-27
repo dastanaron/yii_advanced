@@ -2,7 +2,10 @@
 
 namespace frontend\component;
 
+
+use yii;
 use yii\helpers\Url;
+use common\models\Slids;
 
 class Slider {
     
@@ -66,8 +69,6 @@ class Slider {
             self::SetParams($params);
         
         ?>
-        <!--<link href="/js/swiper/css/swiper.min.css" rel="stylesheet">!-->
-        <!--<script src="/js/swiper/js/swiper.min.js"></script>!-->
         <section class="slider">
             <div id="slider" class="swiper-container swiper-container-horizontal swiper-container-fade">
                 <div class="swiper-wrapper">
@@ -77,7 +78,7 @@ class Slider {
                     <div class="swiper-slide" style="background: url(<?= $param['img'] ?>) <?= $param['options']['image']['left'] ?> <?= $param['options']['image']['top'] ?>;">
                         <div class="slider-info">
                             <div class="slider-title"><?= $param['title'] ?></div>
-                            <div class="slider-price"><big><span style="font-size: 28pt;"><?=$param['price']?></span></big> <?=$param['valute']?></div>
+                            <div class="slider-price"><big><span style="font-size: 28pt;"><?=$param['price']? number_format($param['price'], 0, ',', ' '): ''?></span></big> <?=$param['valute']?></div>
                             <a class="slider-button button" href="<?=$param['link']?>"><?=$param['button']?></a>
                         </div>
                     </div>
@@ -94,47 +95,35 @@ class Slider {
         
     }
     
+    public static function buildParams() {
+        
+        $objects = Slids::find()
+            ->indexBy('id')
+            ->all();
+        
+        $param_array = array();
+        
+        foreach ($objects as $object) {
+            $param_array[] = array(
+            
+            'img' => $object->img_src,
+            'title' => $object->title,
+            'link' => $object->link,
+            'price' => $object->price,
+            'valute' => $object->valute,
+            'button' => $object->text_on_button,
+            'options' => [
+                'image' => [
+                    'left' => $object->img_left,
+                    'top' => $object->img_top,
+                ]
+            ]);
+        }
+        
+        self::$params = $param_array;
+        
+        return $param_array;
+        
+    }
+    
 }
-?>
-<?php /*
-<section class="slider">
-    <div id="slider" class="swiper-container swiper-container-horizontal swiper-container-fade">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background: url(http://gabetti.pro/upload/iblock/fd9/fd9480eebea65764c0888a9291b6060b.jpg) 0 -180px;">
-                <div class="slider-info">
-                    <div class="slider-title">Квартиры и комнаты в Крыму</div>
-                    <div class="slider-price"><!--<big><span style="font-size: 28pt;">3000000</span></big> руб.!--></div>
-                    <a class="slider-button button" href="http://gabetti.pro/flats/">Подобрать</a>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background: url(http://gabetti.pro/upload/iblock/2eb/2ebfe10b559c935d7e0e65f0a88ea7e6.jpg) 0 -180px;">
-                <div class="slider-info">
-                    <div class="slider-title">Новостройки в Крыму</div>
-                    <div class="slider-price"><!--<big><span style="font-size: 28pt;">3000000</span></big> руб.!--></div>
-                    <a class="slider-button button" href="http://gabetti.pro/flats/">Подобрать</a>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background: url(http://gabetti.pro/upload/iblock/d46/d4636f73e20d8de8e7bd9357f3deb1c2.jpg) 0 -180px;">
-                <div class="slider-info">
-                    <div class="slider-title">Загородная недвижимость в Крыму</div>
-                    <div class="slider-price"><!--<big><span style="font-size: 28pt;">3000000</span></big> руб.!--></div>
-                    <a class="slider-button button" href="http://gabetti.pro/flats/">Подобрать</a>
-                </div>
-            </div>
-            <!--<div class="swiper-slide">Slide 4</div>!-->
-        </div>
-    <!-- Add Pagination -->
-    <div id="slider-pagination" class="swiper-pagination swiper-pagination-clickable"></div>
-    </div>
-</section>
-<script>
-	var header_main_slide = new Swiper('#slider', {
-	  pagination: '#slider-pagination',
-	  paginationClickable: true,
-	  effect: 'fade',
-	  //autoplay: 5000,
-	  simulateTouch: false
-	});
-</script>*/
-
-?>

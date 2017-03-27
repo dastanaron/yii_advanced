@@ -10,6 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use zxbodya\yii2\elfinder\ConnectorAction;
+
 /**
  * ContentController implements the CRUD actions for Content model.
  */
@@ -43,6 +45,21 @@ class ContentController extends Controller
             ],
         ];
     }
+    
+    /*public function actions()         
+    {         
+        return [         
+            'connector' => array(         
+                'class' => ConnectorAction::className(),         
+                'settings' => array(         
+                    'root' => '../../../../../frontend/web/uploads/',                    
+                    'URL' => Yii::$app->MultiSite->getFrontend() . '/uploads/',         
+                    'rootAlias' => 'Home',         
+                    'mimeDetect' => 'none'         
+                )                    
+            ),         
+        ];                    
+    }*/
 
     /**
      * Lists all Content models.
